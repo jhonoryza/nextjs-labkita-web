@@ -16,7 +16,6 @@ export default function HeroSection() {
         const res = await fetch("/api/products");
         if (!res.ok) throw new Error("Failed to fetch");
         const products = await res.json();
-        console.log(products);
         setProducts(products);
       } catch (error) {
         console.error("Error fetching products:", error);
