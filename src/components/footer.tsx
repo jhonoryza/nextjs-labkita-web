@@ -106,7 +106,7 @@ export default function Footer({currentYear}: { currentYear: number }) {
                   About Us
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href={"/services"}
                   className="hover:text-orange-400 transition"
@@ -121,7 +121,7 @@ export default function Footer({currentYear}: { currentYear: number }) {
                 >
                   Projects
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   href={"/products"}

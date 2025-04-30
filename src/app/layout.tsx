@@ -31,9 +31,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gradient-to-br from-green-50 to-emerald-50`}
       >
-        <Header />
-        {children}
-        <Footer currentYear={currentYear} />
+          <Header />
+            {children}
+          <Footer currentYear={currentYear} />
       </body>
     </html>
   );

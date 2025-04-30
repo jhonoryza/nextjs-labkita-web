@@ -51,12 +51,12 @@ export default function Header() {
           >
             Blog
           </a>
-          <Link
+          {/* <Link
             href={"/projects"}
             className="text-gray-700 hover:text-green-600 transition"
           >
             Projects
-          </Link>
+          </Link> */}
           <Link
             href={"/engineers"}
             className="text-gray-700 hover:text-green-600 transition"
@@ -100,12 +100,12 @@ export default function Header() {
             >
               Products
             </Link>
-            <Link
+            {/* <Link
               href={"/projects"}
               className="py-2 text-gray-700 hover:text-green-600 transition"
             >
               Projects
-            </Link>
+            </Link> */}
             <a
               href="https://blog.labkita.my.id"
               className="py-2 text-gray-700 hover:text-green-600 transition"
