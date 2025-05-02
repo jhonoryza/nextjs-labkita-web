@@ -135,7 +135,7 @@ export default function ContactPage() {
                 Thank you for your message. We&apos;ll get back to you soon!
               </div>
             )}
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6 bg-white p-4 shadow rounded">
               <div>
                 <label
                   htmlFor="name"

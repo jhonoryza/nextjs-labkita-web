@@ -1,8 +1,8 @@
-import HeroSection from "@/components/hero-section";
+import HeroSection from "@/components/hero/hero-section";
 
 export default function Home() {
   return (
-    <main className="flex-1">
+    <main className="flex-grow">
       <HeroSection />
     </main>
   );

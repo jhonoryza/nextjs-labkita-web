@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import PageTransition from "@/components/page-transition";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,15 +26,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const currentYear = new Date().getFullYear();
-
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gradient-to-br from-green-50 to-emerald-50`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen 
+        bg-gradient-to-br from-green-50 to-emerald-50
+        flex flex-col`}
       >
-          <Header />
-            {children}
-          <Footer currentYear={currentYear} />
+        <Header />
+        <PageTransition>{children}</PageTransition>
+        <Footer currentYear={currentYear} />
       </body>
     </html>
   );

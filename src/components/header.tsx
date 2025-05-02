@@ -2,10 +2,22 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight, Menu } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const linkClass = (href: string) =>
+    `transition ${
+      pathname === href
+        ? "text-green-500 hover:text-green-600 font-semibold"
+        : "text-gray-700 hover:text-green-600"
+    }`;
+  const handleNavClick = () => {
+    setIsMobileMenuOpen(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,7 +52,7 @@ export default function Header() {
         <nav className="hidden md:flex space-x-8">
           <Link
             href={"/products"}
-            className="text-gray-700 hover:text-green-600 transition"
+            className={linkClass("/products") + "transition"}
           >
             Products
           </Link>
@@ -53,19 +65,19 @@ export default function Header() {
           </a>
           {/* <Link
             href={"/projects"}
-            className="text-gray-700 hover:text-green-600 transition"
+            className={linkClass("/products") + "transition"}
           >
             Projects
           </Link> */}
           <Link
             href={"/engineers"}
-            className="text-gray-700 hover:text-green-600 transition"
+            className={linkClass("/engineers") + "transition"}
           >
             Engineers
           </Link>
           <Link
             href={"about"}
-            className="text-gray-700 hover:text-green-600 transition"
+            className={linkClass("/about") + "transition"}
           >
             About
           </Link>
@@ -96,13 +108,14 @@ export default function Header() {
           <nav className="flex flex-col p-4">
             <Link
               href={"/products"}
-              className="py-2 text-gray-700 hover:text-green-600 transition"
+              onClick={handleNavClick}
+              className={linkClass("/products") + "py-2 transition"}
             >
               Products
             </Link>
             {/* <Link
               href={"/projects"}
-              className="py-2 text-gray-700 hover:text-green-600 transition"
+              className={linkClass("/products") + "py-2 transition"}
             >
               Projects
             </Link> */}
@@ -115,19 +128,22 @@ export default function Header() {
             </a>
             <Link
               href={"/engineers"}
-              className="py-2 text-gray-700 hover:text-green-600 transition"
+              onClick={handleNavClick}
+              className={linkClass("/engineers") + "py-2 transition"}
             >
               Engineers
             </Link>
             <Link
               href={"about"}
-              className="py-2 text-gray-700 hover:text-green-600 transition"
+              onClick={handleNavClick}
+              className={linkClass("/about") + "py-2 transition"}
             >
               About
             </Link>
             <Link
               href={"/contacts"}
-              className="py-2 text-gray-700 hover:text-green-600 transition"
+              onClick={handleNavClick}
+              className={linkClass("/contacts") + "py-2 transition"}
             >
               Contact Us
             </Link>
