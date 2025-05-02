@@ -1,7 +1,7 @@
 import { ProductProps } from "@/props/product";
 import ProductDetail from "@/components/product/product-detail";
 
-export async function getProduct(params: Promise<{ slug: string }>): Promise<ProductProps | undefined> {
+async function getProduct(params: Promise<{ slug: string }>): Promise<ProductProps | undefined> {
     const { slug } = await params;
     const apiUrl = process.env.API_URL;
     try {

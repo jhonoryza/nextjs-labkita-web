@@ -1,7 +1,7 @@
 import EngineerProfile from "@/components/engineer/profile";
 import { ProfileProps } from "@/props/profile";
 
-export async function getEngineerProfile(): Promise<ProfileProps | undefined> {
+async function getEngineerProfile(): Promise<ProfileProps | undefined> {
     const apiUrl = process.env.API_URL;
     try {
       const res = await fetch(`${apiUrl}/api/profile`);
