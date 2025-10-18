@@ -32,6 +32,12 @@ export default function EngineerProfile({ profile }: { profile: ProfileProps }) 
                   <h2 className="mb-2 text-xl font-semibold">Education</h2>
                   <p className="text-gray-600">{profile.education}</p>
                 </div>
+                {/* github */}
+                <div className="mb-6 sm:mb-2 hidden sm:block">
+                  <h2 className="mb-2 text-lg font-semibold">
+                    <a className="text-gray-600" href="https://github.com/jhonoryza">Github</a>  
+                  </h2>                  
+                </div>
                 {/* bio */}
                 <div className="mb-6 sm:mb-2 hidden sm:block">
                   <h2 className="mb-2 text-xl font-semibold">Bio</h2>
