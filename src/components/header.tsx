@@ -48,6 +48,12 @@ export default function Header() {
           <Link href="/products" className={linkClass("/products")}>
             Products
           </Link>
+          <Link href="/engineers" className={linkClass("/engineers")}>
+            Engineers
+          </Link>
+          <Link href="/about" className={linkClass("/about")}>
+            About
+          </Link>
           <a
             href="https://blog.labkita.my.id"
             className="font-bold text-foreground hover:text-primary transition-colors"
@@ -55,12 +61,6 @@ export default function Header() {
           >
             Blog
           </a>
-          <Link href="/engineers" className={linkClass("/engineers")}>
-            Engineers
-          </Link>
-          <Link href="/about" className={linkClass("/about")}>
-            About
-          </Link>
           <Link
             href="/contacts"
             className="flex items-center gap-2 px-4 py-2 bg-secondary border-2 border-foreground shadow-neo-sm text-secondary-foreground font-bold hover:shadow-neo transition-shadow"

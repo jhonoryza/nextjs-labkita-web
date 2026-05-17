@@ -88,7 +88,7 @@ export default function AboutPage() {
           </h2>
           <div className="border-2 border-foreground shadow-neo overflow-hidden">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d247.49208401724752!2d107.54134207884584!3d-7.024170704657369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zN8KwMDEnMjcuMSJTIDEwN8KwMzInMjkuNCJF!5e0!3m2!1sid!2ssg!4v1740912783677!5m2!1sid!2ssg"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.873143347476!2d107.5415406!3d-7.024194299999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68ed47db9806e3%3A0x87bd4a02dcbd41a9!2slabkita%20computer!5e0!3m2!1sid!2ssg!4v1779036043702!5m2!1sid!2ssg"
               width="100%"
               height="450"
               style={{ border: 0 }}
