@@ -2,6 +2,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export default function ContactPage() {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -91,7 +92,7 @@ export default function ContactPage() {
         e.preventDefault();
 
         if (!validateForm()) {
-          return; // If validation fails, don't submit
+          return;
         }
 
         setIsSubmitting(true);
@@ -126,78 +127,45 @@ export default function ContactPage() {
     return (
       <main className="flex-grow">
         <div className="container mx-auto px-4 py-16">
-          <h1 className="mb-8 bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-center text-4xl font-bold text-transparent">
+          <h1 className="mb-8 text-center text-4xl font-black text-foreground border-b-2 border-foreground pb-4 inline-block w-full">
             Contact Us
           </h1>
           <div className="mx-auto max-w-2xl">
             {submitSuccess && (
-              <div className="mt-4 rounded border border-green-400 bg-green-100 p-4 text-green-700">
+              <div className="mt-4 border-2 border-foreground bg-primary p-4 text-primary-foreground font-bold shadow-neo-sm">
                 Thank you for your message. We&apos;ll get back to you soon!
               </div>
             )}
-            <form onSubmit={handleSubmit} className="space-y-6 bg-white p-4 shadow rounded">
+            <form onSubmit={handleSubmit} className="space-y-6 bg-background p-6 border-2 border-foreground shadow-neo">
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-700"
-                >
+                <label htmlFor="name" className="block text-sm font-bold text-foreground mb-1">
                   Name
                 </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 py-2 shadow-sm focus:border-green-500 focus:ring-green-500"
-                />
+                <Input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange} />
                 {errors.name && (
-                  <p className="mt-1 text-sm text-red-600">{errors.name}</p>
+                  <p className="mt-1 text-sm font-bold text-destructive">{errors.name}</p>
                 )}
               </div>
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700"
-                >
+                <label htmlFor="email" className="block text-sm font-bold text-foreground mb-1">
                   Email
                 </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 py-2 shadow-sm focus:border-green-500 focus:ring-green-500"
-                />
+                <Input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} />
                 {errors.email && (
-                  <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+                  <p className="mt-1 text-sm font-bold text-destructive">{errors.email}</p>
                 )}
               </div>
               <div>
-                <label
-                  htmlFor="subject"
-                  className="block text-sm font-medium text-gray-700"
-                >
+                <label htmlFor="subject" className="block text-sm font-bold text-foreground mb-1">
                   Subject
                 </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 py-2 shadow-sm focus:border-green-500 focus:ring-green-500"
-                />
+                <Input type="text" id="subject" name="subject" value={formData.subject} onChange={handleInputChange} />
                 {errors.subject && (
-                  <p className="mt-1 text-sm text-red-600">{errors.subject}</p>
+                  <p className="mt-1 text-sm font-bold text-destructive">{errors.subject}</p>
                 )}
               </div>
               <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-700"
-                >
+                <label htmlFor="message" className="block text-sm font-bold text-foreground mb-1">
                   Message
                 </label>
                 <textarea
@@ -206,43 +174,32 @@ export default function ContactPage() {
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+                  className="flex w-full border-2 border-foreground bg-background px-3 py-2 text-base shadow-neo-sm outline-none focus-visible:shadow-neo md:text-sm"
                 ></textarea>
                 {errors.message && (
-                  <p className="mt-1 text-sm text-red-600">{errors.message}</p>
+                  <p className="mt-1 text-sm font-bold text-destructive">{errors.message}</p>
                 )}
               </div>
               <div>
-                <label
-                  htmlFor="captcha"
-                  className="block text-sm font-medium text-gray-700"
-                >
+                <label htmlFor="captcha" className="block text-sm font-bold text-foreground mb-1">
                   Please answer the question: {captchaQuestion}
                 </label>
-                <input
-                  type="number"
-                  id="captcha"
-                  name="captcha"
-                  value={formData.captcha}
-                  onChange={handleInputChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 py-2 shadow-sm focus:border-green-500 focus:ring-green-500"
-                />
+                <Input type="number" id="captcha" name="captcha" value={formData.captcha} onChange={handleInputChange} />
                 {errors.captcha && (
-                  <p className="mt-1 text-sm text-red-600">{errors.captcha}</p>
+                  <p className="mt-1 text-sm font-bold text-destructive">{errors.captcha}</p>
                 )}
               </div>
               <div>
                 <Button
                   disabled={isSubmitting}
                   type="submit"
-                  variant="submit"
-                  className="cursor-pointer"
+                  className="w-full cursor-pointer"
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </div>
             </form>
-            <div className="mt-4">{responseMessage && <p>{responseMessage}</p>}</div>
+            <div className="mt-4">{responseMessage && <p className="font-bold">{responseMessage}</p>}</div>
           </div>
         </div>
       </main>

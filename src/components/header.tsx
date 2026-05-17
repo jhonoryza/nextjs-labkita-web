@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, Menu } from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
@@ -10,11 +10,12 @@ export default function Header() {
   const pathname = usePathname();
 
   const linkClass = (href: string) =>
-    `transition ${
+    `font-bold transition-colors ${
       pathname === href
-        ? "text-green-500 hover:text-green-600 font-semibold"
-        : "text-gray-700 hover:text-green-600"
+        ? "text-primary underline decoration-2 underline-offset-4"
+        : "text-foreground hover:text-primary"
     }`;
+
   const handleNavClick = () => {
     setIsMobileMenuOpen(false);
   };
@@ -23,134 +24,105 @@ export default function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-transparent"
+      className={`sticky top-0 z-50 border-b-2 border-foreground transition-all duration-300 ${
+        isScrolled ? "bg-background shadow-neo-sm" : "bg-background"
       }`}
     >
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        {/* logo */}
-        <Link href={`/`} className="flex items-center space-x-2">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center">
-            <span className="text-white font-bold text-xl">L</span>
+      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+        <Link href="/" className="flex items-center gap-2">
+          <div className="w-10 h-10 bg-primary border-2 border-foreground shadow-neo-sm flex items-center justify-center">
+            <span className="text-primary-foreground font-black text-xl">L</span>
           </div>
-          <span className="font-bold text-xl bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+          <span className="font-black text-xl text-foreground">
             Labkita
           </span>
         </Link>
-        {/* end logo */}
 
-        <nav className="hidden md:flex space-x-8">
-          <Link
-            href={"/products"}
-            className={linkClass("/products") + "transition"}
-          >
+        <nav className="hidden md:flex items-center gap-8">
+          <Link href="/products" className={linkClass("/products")}>
             Products
           </Link>
           <a
             href="https://blog.labkita.my.id"
-            className="text-gray-700 hover:text-green-600 transition"
+            className="font-bold text-foreground hover:text-primary transition-colors"
             target="_blank"
           >
             Blog
           </a>
-          {/* <Link
-            href={"/projects"}
-            className={linkClass("/products") + "transition"}
-          >
-            Projects
-          </Link> */}
-          <Link
-            href={"/engineers"}
-            className={linkClass("/engineers") + "transition"}
-          >
+          <Link href="/engineers" className={linkClass("/engineers")}>
             Engineers
           </Link>
-          <Link
-            href={"about"}
-            className={linkClass("/about") + "transition"}
-          >
+          <Link href="/about" className={linkClass("/about")}>
             About
+          </Link>
+          <Link
+            href="/contacts"
+            className="flex items-center gap-2 px-4 py-2 bg-secondary border-2 border-foreground shadow-neo-sm text-secondary-foreground font-bold hover:shadow-neo transition-shadow"
+          >
+            Contact Us
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </nav>
 
-        {/* contact us */}
-        <Link
-          href={"/contacts"}
-          className="hidden md:flex items-center px-4 py-2 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 text-white font-medium hover:shadow-lg transition"
-        >
-          Contact Us
-          <ArrowRight className="ml-2 h-4 w-4" />
-        </Link>
-        {/* end contact us */}
-
-        {/* breadcrumbs */}
         <button
-          className="md:hidden text-gray-700 hover:cursor-pointer"
+          className="md:hidden p-2 border-2 border-foreground shadow-neo-sm bg-background hover:cursor-pointer"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          <Menu className="h-6 w-6" />
+          {isMobileMenuOpen ? (
+            <X className="h-5 w-5" />
+          ) : (
+            <Menu className="h-5 w-5" />
+          )}
         </button>
-        {/* end breadcrumbs */}
       </div>
-      {/* mobile menu */}
+
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-md">
-          <nav className="flex flex-col p-4">
+        <div className="md:hidden border-t-2 border-foreground bg-background">
+          <nav className="flex flex-col p-4 gap-2">
             <Link
-              href={"/products"}
+              href="/products"
               onClick={handleNavClick}
-              className={linkClass("/products") + "py-2 transition"}
+              className="px-3 py-2 border-2 border-foreground font-bold hover:bg-primary hover:text-primary-foreground transition-colors"
             >
               Products
             </Link>
-            {/* <Link
-              href={"/projects"}
-              className={linkClass("/products") + "py-2 transition"}
-            >
-              Projects
-            </Link> */}
             <a
               href="https://blog.labkita.my.id"
-              className="py-2 text-gray-700 hover:text-green-600 transition"
+              className="px-3 py-2 border-2 border-foreground font-bold hover:bg-primary hover:text-primary-foreground transition-colors"
               target="_blank"
             >
               Blog
             </a>
             <Link
-              href={"/engineers"}
+              href="/engineers"
               onClick={handleNavClick}
-              className={linkClass("/engineers") + "py-2 transition"}
+              className="px-3 py-2 border-2 border-foreground font-bold hover:bg-primary hover:text-primary-foreground transition-colors"
             >
               Engineers
             </Link>
             <Link
-              href={"about"}
+              href="/about"
               onClick={handleNavClick}
-              className={linkClass("/about") + "py-2 transition"}
+              className="px-3 py-2 border-2 border-foreground font-bold hover:bg-primary hover:text-primary-foreground transition-colors"
             >
               About
             </Link>
             <Link
-              href={"/contacts"}
+              href="/contacts"
               onClick={handleNavClick}
-              className={linkClass("/contacts") + "py-2 transition"}
+              className="px-3 py-2 bg-secondary border-2 border-foreground font-bold text-secondary-foreground text-center"
             >
               Contact Us
             </Link>
           </nav>
         </div>
       )}
-      {/* end mobile menu */}
     </header>
   );
 }

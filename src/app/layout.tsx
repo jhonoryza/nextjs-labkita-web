@@ -29,9 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen 
-        bg-gradient-to-br from-green-50 to-emerald-50
-        flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-secondary/10 flex flex-col`}
       >
         <Header />
         <PageTransition>{children}</PageTransition>

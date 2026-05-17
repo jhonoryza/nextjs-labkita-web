@@ -9,7 +9,7 @@ import { ProductProps } from "@/props/product";
 export default function HeroSlider({ products }: { products: ProductProps[] }) {
   const [currentProduct, setCurrentProduct] = useState(0);
 
-  if (products.length === 0) return <div>Loading...</div>;
+  if (products.length === 0) return <div className="flex-grow flex items-center justify-center font-bold text-2xl p-20">Loading...</div>;
 
   const nextProduct = () => {
     setCurrentProduct((prev) => (prev + 1) % products.length);
@@ -22,23 +22,26 @@ export default function HeroSlider({ products }: { products: ProductProps[] }) {
   const product = products[currentProduct];
 
   return (
-    <section className="py-20 md:py-32 bg-gradient-to-br from-green-50 to-emerald-50">
+    <section className="py-20 md:py-32 bg-secondary/10">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
           <div className="w-full md:w-1/2 mb-10 md:mb-0">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent text-center sm:text-start">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 text-foreground">
               {product.name}
             </h1>
-            <div className="hidden flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 sm:flex">
+            <p className="text-lg text-foreground/70 mb-8 max-w-lg font-medium">
+              {product.description}
+            </p>
+            <div className="hidden flex-col sm:flex-row gap-4 sm:flex">
               <Link
                 href={`/products/${product.id}`}
-                className="px-6 py-3 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 text-white font-medium hover:shadow-lg transition text-center"
+                className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground font-bold border-2 border-foreground shadow-neo hover:shadow-neo-sm transition-shadow"
               >
                 Learn More
               </Link>
               <Link
                 href="/products"
-                className="px-6 py-3 rounded-lg border border-green-200 text-green-600 font-medium hover:bg-green-50 transition text-center"
+                className="inline-flex items-center justify-center px-6 py-3 bg-background text-foreground font-bold border-2 border-foreground shadow-neo hover:shadow-neo-sm transition-shadow"
               >
                 View All Products
               </Link>
@@ -53,38 +56,35 @@ export default function HeroSlider({ products }: { products: ProductProps[] }) {
                 priority={true}
                 fill
                 sizes="(max-width: 1200px) 100vw, 50vw, 33vw"
-                className="rounded-2xl shadow-xl object-contain min-h-72 w-fit"
+                className="border-2 border-foreground shadow-neo object-contain min-h-72 w-fit bg-background p-4"
               />
               <div className="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2">
                 <button
                   onClick={prevProduct}
-                  className="p-2 rounded-full bg-white shadow-md hover:bg-green-100 transition hover:cursor-pointer"
+                  className="p-2 border-2 border-foreground bg-background shadow-neo-sm hover:shadow-neo transition-shadow hover:cursor-pointer"
                 >
-                  <ArrowLeft className="h-6 w-6 text-green-600" />
+                  <ArrowLeft className="h-6 w-6" />
                 </button>
               </div>
               <div className="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/2">
                 <button
                   onClick={nextProduct}
-                  className="p-2 rounded-full bg-white shadow-md hover:bg-green-100 transition hover:cursor-pointer"
+                  className="p-2 border-2 border-foreground bg-background shadow-neo-sm hover:shadow-neo transition-shadow hover:cursor-pointer"
                 >
-                  <ArrowRight className="h-6 w-6 text-green-600" />
+                  <ArrowRight className="h-6 w-6" />
                 </button>
               </div>
             </div>
-            <p className="text-lg text-gray-600 mb-8 max-w-lg">
-              {product.description}
-            </p>
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 sm:hidden">
+            <div className="flex flex-col sm:flex-row gap-4 sm:hidden">
               <Link
                 href={`/products/${product.id}`}
-                className="px-6 py-3 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 text-white font-medium hover:shadow-lg transition text-center"
+                className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground font-bold border-2 border-foreground shadow-neo hover:shadow-neo-sm transition-shadow"
               >
                 Learn More
               </Link>
               <Link
                 href="/products"
-                className="px-6 py-3 rounded-lg border border-green-200 text-green-600 font-medium hover:bg-green-50 transition text-center"
+                className="inline-flex items-center justify-center px-6 py-3 bg-background text-foreground font-bold border-2 border-foreground shadow-neo hover:shadow-neo-sm transition-shadow"
               >
                 View All Products
               </Link>
