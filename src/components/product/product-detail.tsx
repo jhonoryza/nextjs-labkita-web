@@ -10,57 +10,55 @@ export default function ProductDetail({ product }: { product: ProductProps }) {
       <div className="container mx-auto px-4 py-16">
         <Link
           href={"/products"}
-          className="mb-8 inline-flex items-center gap-2 font-bold text-foreground border-2 border-foreground px-4 py-2 bg-background shadow-neo-sm hover:shadow-neo transition-shadow"
+          className="mb-6 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Products
         </Link>
-        <div className="border-2 border-foreground bg-background shadow-neo">
-          <div className="relative h-60 sm:h-150 border-b-2 border-foreground">
+        <div className="rounded-lg border bg-card shadow-sm overflow-hidden">
+          <div className="relative h-60 sm:h-96 bg-muted">
             <Image
               src={product.image}
               alt={product.name}
               fill
               priority={true}
               sizes="(max-width: 1200px) 100vw, 50vw, 33vw"
-              className="object-contain mx-auto min-h-60 sm:min-h-150 p-4"
+              className="object-contain p-6"
             />
           </div>
           <div className="p-8">
-            <h1 className="mb-4 text-4xl font-black text-foreground border-b-2 border-foreground pb-4">
+            <h1 className="mb-3 text-3xl font-bold text-foreground">
               {product.name}
             </h1>
-            <p className="mb-8 text-xl text-foreground/70 font-medium">{product.description}</p>
+            <p className="mb-6 text-lg text-muted-foreground">{product.description}</p>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-              <div className="flex flex-col gap-8">
+              <div className="flex flex-col gap-6">
                 <div>
-                  <h2 className="text-2xl font-bold mb-3">Installation</h2>
-                  <div className="flex flex-wrap gap-2">
-                    <a
-                      href={product.docs}
-                      target="_blank"
-                      className="inline-flex px-4 py-2 bg-secondary text-secondary-foreground font-bold border-2 border-foreground shadow-neo-sm hover:shadow-neo transition-shadow"
-                    >
-                      Download Here
-                    </a>
-                  </div>
+                  <h2 className="text-lg font-semibold mb-2">Installation</h2>
+                  <a
+                    href={product.docs}
+                    target="_blank"
+                    className="inline-flex px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors"
+                  >
+                    Download Here
+                  </a>
                 </div>
-                <div className="flex flex-col gap-4">
-                  <h2 className="text-2xl font-bold">Features</h2>
+                <div className="flex flex-col gap-3">
+                  <h2 className="text-lg font-semibold">Features</h2>
                   <ul className="space-y-2">
                     {product.features.map((feature, index) => (
-                      <li key={index} className="flex items-center gap-2 font-medium">
-                        <Check className="h-5 w-5 text-primary shrink-0" />
+                      <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="h-4 w-4 text-primary mt-0.5 shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <Badge className="text-xs">
+                  <Badge className="text-xs w-fit">
                     {product.is_opensource == true ? "open source" : "paid"}
                   </Badge>
                   {product.policy_url && (
                     <Link
-                      className="font-bold text-accent underline underline-offset-4 hover:text-accent/80"
+                      className="text-sm font-medium text-primary hover:underline"
                       href={product.policy_url}
                     >
                       privacy and policy
@@ -69,24 +67,24 @@ export default function ProductDetail({ product }: { product: ProductProps }) {
                 </div>
               </div>
               <div>
-                <h2 className="mb-4 text-2xl font-bold">Pricing</h2>
-                <div className="space-y-4">
+                <h2 className="text-lg font-semibold mb-4">Pricing</h2>
+                <div className="space-y-2">
                   {product.pricing.map((price, index) => (
                     <div
                       key={index}
-                      className="flex items-center justify-between border-2 border-foreground p-3 bg-background shadow-neo-sm font-bold"
+                      className="flex items-center justify-between border rounded-lg p-3 bg-muted/50"
                     >
-                      <span>{price.plan}</span>
-                      <span className="text-primary">{price.price}</span>
+                      <span className="font-medium text-sm">{price.plan}</span>
+                      <span className="text-primary font-semibold">{price.price}</span>
                     </div>
                   ))}
                 </div>
-                <h2 className="mt-8 mb-4 text-2xl font-bold">Tech Stack</h2>
-                <div className="flex flex-wrap gap-2">
+                <h2 className="mt-6 mb-3 text-lg font-semibold">Tech Stack</h2>
+                <div className="flex flex-wrap gap-1.5">
                   {product.techStack.map((tech, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 bg-muted text-foreground font-bold border-2 border-foreground text-sm"
+                      className="px-2.5 py-1 bg-muted text-muted-foreground rounded text-xs"
                     >
                       {tech}
                     </span>

@@ -5,38 +5,40 @@ const apps = [
     name: "Kasirku",
     description: "Aplikasi kasir online untuk mengelola transaksi penjualan dan stok barang.",
     url: "https://kasirku.labkita.my.id/",
-    color: "bg-primary",
+    gradient: "from-amber-500 to-orange-500",
   },
   {
     name: "Catatan Ibu",
     description: "Aplikasi pencatatan daftar belanja, pengeluaran, pemasukan dan hutang piutang.",
     url: "https://catatan-ibu.labkita.my.id/",
-    color: "bg-accent",
+    gradient: "from-pink-500 to-rose-500",
   },
   {
     name: "IklanRumah",
     description: "Platform listing properti untuk jual, beli, dan sewa rumah.",
     url: "https://iklanrumah.labkita.my.id/",
-    color: "bg-secondary",
+    gradient: "from-sky-500 to-blue-500",
   },
   {
     name: "Tools",
     description: "Kumpulan alat bantu online untuk berbagai kebutuhan.",
     url: "https://tools.labkita.my.id/",
-    color: "bg-primary",
+    gradient: "from-emerald-500 to-teal-500",
   },
 ];
 
 export default function AppsSection() {
   return (
-    <section className="py-20">
+    <section className="py-16 bg-muted/50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-black text-center mb-4 text-foreground">
-          Our Apps
-        </h2>
-        <p className="text-lg text-foreground/70 font-medium text-center mb-12 max-w-2xl mx-auto">
-          Aplikasi buatan kami yang siap membantu kebutuhan Anda
-        </p>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+            Our Apps
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Aplikasi buatan kami yang siap membantu kebutuhan Anda
+          </p>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {apps.map((app) => (
             <a
@@ -44,20 +46,20 @@ export default function AppsSection() {
               href={app.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col border-2 border-foreground bg-background shadow-neo hover:shadow-neo-lg transition-all"
+              className="group flex flex-col rounded-lg border bg-card hover:shadow-lg transition-all overflow-hidden"
             >
-              <div className={`${app.color} border-b-2 border-foreground p-6`}>
-                <h3 className="text-xl font-black text-background">
+              <div className={`bg-gradient-to-br ${app.gradient} p-6`}>
+                <h3 className="text-xl font-bold text-white">
                   {app.name}
                 </h3>
               </div>
               <div className="p-5 flex flex-col gap-4 flex-1">
-                <p className="text-foreground/70 font-medium text-sm flex-1">
+                <p className="text-muted-foreground text-sm flex-1">
                   {app.description}
                 </p>
-                <span className="inline-flex items-center gap-2 font-bold text-primary group-hover:underline">
+                <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:underline">
                   Kunjungi
-                  <ExternalLink className="h-4 w-4" />
+                  <ExternalLink className="h-3.5 w-3.5" />
                 </span>
               </div>
             </a>

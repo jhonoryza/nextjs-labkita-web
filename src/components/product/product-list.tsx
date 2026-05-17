@@ -5,46 +5,41 @@ import { ProductProps } from "@/props/product";
 import Image from "next/image";
 
 export default function ProductList({ products }: { products: ProductProps[] }) {
-  if (products.length === 0) return <div className="flex-grow flex items-center justify-center font-bold text-2xl p-20">Loading...</div>;
+  if (products.length === 0) return <div className="flex-grow flex items-center justify-center text-muted-foreground p-20">Loading...</div>;
   return (
     <main className="flex-grow">
       <div className="container mx-auto px-4 py-16">
-        <h1 className="mb-8 text-center text-4xl font-black text-foreground border-b-2 border-foreground pb-4 inline-block w-full">
+        <h1 className="mb-8 text-center text-4xl font-bold text-foreground">
           Our Products
         </h1>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {products.map((product) => (
             <Link
               href={`products/${product.id}`}
               key={product.id}
-              className="flex flex-col border-2 border-foreground bg-background shadow-neo hover:shadow-neo-lg transition-shadow"
+              className="group flex flex-col rounded-lg border bg-card shadow-sm hover:shadow-md transition-all overflow-hidden"
             >
-              <div className="relative h-72 border-b-2 border-foreground">
+              <div className="relative h-48 bg-muted">
                 <Image
                   src={product.image}
                   alt={product.name}
                   fill
                   priority={true}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-contain min-h-72 p-4"
+                  className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 flex items-end">
-                  <span className="p-3 font-bold text-foreground bg-secondary border-t-2 border-r-2 border-foreground">
-                    {product.category}
-                  </span>
-                </div>
               </div>
-              <div className="flex h-full flex-col justify-between gap-4 p-6">
-                <h2 className="text-xl font-bold text-foreground">
+              <div className="flex h-full flex-col justify-between gap-3 p-5">
+                <h2 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
                   {product.name}
                 </h2>
-                <p className="text-foreground/70 font-medium">{product.description}</p>
-                <Badge className="text-xs">
+                <p className="text-muted-foreground text-sm">{product.description}</p>
+                <Badge className="text-xs w-fit">
                   {product.is_opensource == true ? "open source" : "paid"}
                 </Badge>
-                <div className="inline-flex items-center gap-2 font-bold text-primary hover:text-primary/80 transition-colors">
+                <div className="inline-flex items-center gap-1.5 text-sm font-medium text-primary">
                   Learn More
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
                 </div>
               </div>
             </Link>
