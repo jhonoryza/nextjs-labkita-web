@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import PageTransition from "@/components/page-transition";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const openSans = Open_Sans({
   variable: "--font-sans",
@@ -13,6 +14,14 @@ const openSans = Open_Sans({
 export const metadata: Metadata = {
   title: "Labkita",
   description: "Labkita Web",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/logo-180.png",
+    shortcut: "/logo-32.png",
+  },
+  openGraph: {
+    images: [{ url: "/logo-512.png" }],
+  },
 };
 
 export default function RootLayout({
@@ -23,12 +32,21 @@ export default function RootLayout({
   const currentYear = new Date().getFullYear();
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var s=localStorage.getItem('theme');var d=document.documentElement;if(s==='dark'||(!s&&window.matchMedia('(prefers-color-scheme:dark)').matches)){d.classList.add('dark')}}catch(e){}})()`,
+          }}
+        />
+      </head>
       <body
         className={`${openSans.variable} antialiased min-h-screen bg-background flex flex-col`}
       >
-        <Header />
-        <PageTransition>{children}</PageTransition>
-        <Footer currentYear={currentYear} />
+        <ThemeProvider>
+          <Header />
+          <PageTransition>{children}</PageTransition>
+          <Footer currentYear={currentYear} />
+        </ThemeProvider>
       </body>
     </html>
   );

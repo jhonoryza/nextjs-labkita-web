@@ -1,8 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, ExternalLink, ChevronDown } from "lucide-react";
 import { usePathname } from "next/navigation";
+import ThemeToggle from "./theme-toggle";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,6 +17,8 @@ const apps = [
   { name: "Catatan Ibu", url: "https://catatan-ibu.labkita.my.id/" },
   { name: "IklanRumah", url: "https://iklanrumah.labkita.my.id/" },
   { name: "Tools", url: "https://tools.labkita.my.id/" },
+  { name: "Winemp", url: "https://winemp.labkita.my.id" },
+  { name: "Kita Muslim", url: "https://muslim.labkita.my.id" },
 ];
 
 const moreItems = [
@@ -51,9 +55,7 @@ export default function Header() {
     >
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-9 h-9 bg-primary rounded-lg flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-lg">L</span>
-          </div>
+          <Image src="/logo-64.png" alt="Labkita" width={36} height={36} className="rounded-lg" />
           <span className="font-bold text-lg text-foreground">
             Labkita
           </span>
@@ -140,16 +142,19 @@ export default function Header() {
           </DropdownMenu>
         </nav>
 
-        <button
-          className="md:hidden p-2 rounded-lg border text-foreground/70 hover:cursor-pointer hover:bg-accent transition-colors"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? (
-            <X className="h-5 w-5" />
-          ) : (
-            <Menu className="h-5 w-5" />
-          )}
-        </button>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            className="md:hidden p-2 rounded-lg border text-foreground/70 hover:cursor-pointer hover:bg-accent transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
+          </button>
+        </div>
       </div>
 
       {isMobileMenuOpen && (

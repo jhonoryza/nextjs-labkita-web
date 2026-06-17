@@ -25,6 +25,18 @@ const apps = [
     url: "https://tools.labkita.my.id/",
     gradient: "from-emerald-500 to-teal-500",
   },
+  {
+    name: "Winemp",
+    description: "Music visualizer untuk menikmati musik dengan visualisasi yang memukau.",
+    url: "https://winemp.labkita.my.id",
+    gradient: "from-purple-500 to-violet-500",
+  },
+  {
+    name: "Kita Muslim",
+    description: "Jadwal shalat, arah kiblat, dan baca Al-Quran dalam satu aplikasi.",
+    url: "https://muslim.labkita.my.id",
+    gradient: "from-green-600 to-emerald-600",
+  },
 ];
 
 export default function AppsSection() {

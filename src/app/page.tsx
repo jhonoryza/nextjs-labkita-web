@@ -9,9 +9,9 @@ export default async function Home() {
 
   return (
     <main className="flex-grow">
-      <StatsSection productCount={products.length} appsCount={4} />
       <AppsSection />
       <HeroSection />
+      <StatsSection productCount={products.length} appsCount={6} />
       <CTASection />
     </main>
   );

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Mail, Phone } from "lucide-react";
 
 export default function Footer({currentYear}: { currentYear: number }) {
@@ -8,9 +9,7 @@ export default function Footer({currentYear}: { currentYear: number }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">L</span>
-              </div>
+              <Image src="/logo-64.png" alt="Labkita" width={36} height={36} className="rounded-lg" />
               <span className="font-bold text-xl text-foreground">Labkita</span>
             </div>
             <p className="text-muted-foreground mb-4">Building great products.</p>

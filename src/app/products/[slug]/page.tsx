@@ -1,5 +1,6 @@
 import { ProductProps } from "@/props/product";
 import ProductDetail from "@/components/product/product-detail";
+import { getLocalProduct } from "@/lib/products";
 
 async function getProduct(params: Promise<{ slug: string }>): Promise<ProductProps | undefined> {
     const { slug } = await params;
@@ -7,11 +8,11 @@ async function getProduct(params: Promise<{ slug: string }>): Promise<ProductPro
     try {
       const res = await fetch(`${apiUrl}/api/products/${slug}`);
       const json = await res.json();
-      return json.data;
+      if (json.code === 200 && json.data) return json.data;
     } catch (err) {
       console.log(err);
-      return undefined;
     }
+    return getLocalProduct(Number(slug));
 };
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {

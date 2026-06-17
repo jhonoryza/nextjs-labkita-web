@@ -43,7 +43,7 @@ export default function ProductShowcase({ products }: { products: ProductProps[]
 
   return (
     <>
-      <section className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50/50 to-background">
+      <section className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50/50 to-background dark:from-muted/40 dark:via-muted/20 dark:to-background">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
         <div className="relative py-16 md:py-24">
           <div className="container mx-auto px-4">
