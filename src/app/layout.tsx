@@ -12,6 +12,7 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://labkita.my.id"),
   title: "Labkita",
   description: "Labkita Web",
   icons: {
