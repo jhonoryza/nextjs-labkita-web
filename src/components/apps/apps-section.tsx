@@ -2,28 +2,10 @@ import { ExternalLink } from "lucide-react";
 
 const apps = [
   {
-    name: "Kasirku",
-    description: "Aplikasi kasir online untuk mengelola transaksi penjualan dan stok barang.",
-    url: "https://kasirku.labkita.my.id/",
-    gradient: "from-amber-500 to-orange-500",
-  },
-  {
-    name: "Catatan Ibu",
-    description: "Aplikasi pencatatan daftar belanja, pengeluaran, pemasukan dan hutang piutang.",
-    url: "https://catatan-ibu.labkita.my.id/",
-    gradient: "from-pink-500 to-rose-500",
-  },
-  {
-    name: "IklanRumah",
-    description: "Platform listing properti untuk jual, beli, dan sewa rumah.",
-    url: "https://iklanrumah.labkita.my.id/",
-    gradient: "from-sky-500 to-blue-500",
-  },
-  {
-    name: "Tools",
-    description: "Kumpulan alat bantu online untuk berbagai kebutuhan.",
-    url: "https://tools.labkita.my.id/",
-    gradient: "from-emerald-500 to-teal-500",
+    name: "Kita Muslim",
+    description: "Jadwal shalat, arah kiblat, dan baca Al-Quran dalam satu aplikasi.",
+    url: "https://muslim.labkita.my.id",
+    gradient: "from-green-600 to-emerald-600",
   },
   {
     name: "Winemp",
@@ -32,10 +14,34 @@ const apps = [
     gradient: "from-purple-500 to-violet-500",
   },
   {
-    name: "Kita Muslim",
-    description: "Jadwal shalat, arah kiblat, dan baca Al-Quran dalam satu aplikasi.",
-    url: "https://muslim.labkita.my.id",
-    gradient: "from-green-600 to-emerald-600",
+    name: "Iklan Rumah",
+    description: "Platform listing properti untuk jual, beli, dan sewa rumah.",
+    url: "https://iklanrumah.labkita.my.id/",
+    gradient: "from-sky-500 to-blue-500",
+  },
+  {
+    name: "Mixing",
+    description: "Aplikasi mixing audio untuk kebutuhan musik dan podcast.",
+    url: "https://mixing-web.labkita.my.id",
+    gradient: "from-indigo-500 to-purple-600",
+  },
+  {
+    name: "Tools",
+    description: "Kumpulan alat bantu online untuk berbagai kebutuhan.",
+    url: "https://tools.labkita.my.id/",
+    gradient: "from-emerald-500 to-teal-500",
+  },
+  {
+    name: "Catatan Ibu",
+    description: "Aplikasi pencatatan daftar belanja, pengeluaran, pemasukan dan hutang piutang.",
+    url: "https://catatan-ibu.labkita.my.id/",
+    gradient: "from-pink-500 to-rose-500",
+  },
+  {
+    name: "Kasirku",
+    description: "Aplikasi kasir online untuk mengelola transaksi penjualan dan stok barang.",
+    url: "https://kasirku.labkita.my.id/",
+    gradient: "from-amber-500 to-orange-500",
   },
 ];
 
