@@ -20,9 +20,9 @@ const apps = [
     gradient: "from-sky-500 to-blue-500",
   },
   {
-    name: "Mixing",
-    description: "Aplikasi mixing audio untuk kebutuhan musik dan podcast.",
-    url: "https://mixing-web.labkita.my.id",
+    name: "Mac App",
+    description: "Aplikasi Mac.",
+    url: "https://mac-app.labkita.my.id",
     gradient: "from-indigo-500 to-purple-600",
   },
   {

@@ -13,12 +13,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const apps = [
-  { name: "Kasirku", url: "https://kasirku.labkita.my.id/" },
-  { name: "Catatan Ibu", url: "https://catatan-ibu.labkita.my.id/" },
-  { name: "IklanRumah", url: "https://iklanrumah.labkita.my.id/" },
-  { name: "Tools", url: "https://tools.labkita.my.id/" },
-  { name: "Winemp", url: "https://winemp.labkita.my.id" },
   { name: "Kita Muslim", url: "https://muslim.labkita.my.id" },
+  { name: "Iklan Rumah", url: "https://iklanrumah.labkita.my.id/" },
+  { name: "Winemp", url: "https://winemp.labkita.my.id" },
+  { name: "Mac App", url: "https://mac-app.labkita.my.id" },
+  { name: "Tools", url: "https://tools.labkita.my.id/" },
+  { name: "Catatan Ibu", url: "https://catatan-ibu.labkita.my.id/" },
+  { name: "Kasirku", url: "https://kasirku.labkita.my.id/" },
 ];
 
 const moreItems = [
