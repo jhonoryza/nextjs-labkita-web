@@ -1,6 +1,6 @@
-import HeroSection from "@/components/hero/hero-section";
 import StatsSection from "@/components/stats-section";
 import AppsSection from "@/components/apps/apps-section";
+import OpenSourceSection from "@/components/opensource/opensource-section";
 import CTASection from "@/components/cta-section";
 import { getProducts } from "@/lib/products";
 
@@ -10,7 +10,7 @@ export default async function Home() {
   return (
     <main className="flex-grow">
       <AppsSection />
-      <HeroSection />
+      <OpenSourceSection products={products} />
       <StatsSection productCount={products.length} appsCount={6} />
       <CTASection />
     </main>

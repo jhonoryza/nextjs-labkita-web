@@ -1,29 +1,32 @@
 import Link from "next/link";
 import { ProductProps } from "@/props/product";
 
-export default function ProductList({ products }: { products: ProductProps[] }) {
-  if (products.length === 0) return <div className="flex-grow flex items-center justify-center text-muted-foreground p-20">Loading...</div>;
+export default function OpenSourceSection({ products }: { products: ProductProps[] }) {
+  if (products.length === 0) return null;
+
   return (
-    <main className="flex-grow">
-      <div className="container mx-auto px-4 py-16">
-        <h1 className="mb-3 text-center text-4xl font-bold tracking-tight">
-          Our Products
-        </h1>
-        <p className="text-center text-muted-foreground mb-14 max-w-xl mx-auto">
-          Semua produk dan proyek open source dari Labkita
-        </p>
-        <div className="divide-y divide-border/50 max-w-3xl mx-auto">
+    <section className="py-16 md:py-24 bg-muted/30">
+      <div className="container mx-auto px-4">
+        <div className="mb-14">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+            Products
+          </h2>
+          <p className="mt-3 text-lg text-muted-foreground max-w-xl">
+            Semua produk dan proyek open source dari Labkita
+          </p>
+        </div>
+        <div className="divide-y divide-border/50">
           {products.map((product) => (
             <Link
-              href={`products/${product.id}`}
               key={product.id}
+              href={`/products/${product.id}`}
               className="group flex items-center justify-between gap-6 py-5 -mx-4 px-4 rounded-lg transition-colors hover:bg-muted/40"
             >
               <div className="min-w-0">
                 <div className="flex items-center gap-3 flex-wrap">
-                  <h2 className="font-semibold group-hover:text-primary transition-colors">
+                  <h3 className="font-semibold group-hover:text-primary transition-colors">
                     {product.name}
-                  </h2>
+                  </h3>
                   {product.is_opensource && (
                     <span className="text-[10px] uppercase tracking-widest text-muted-foreground/40">
                       open source
@@ -44,6 +47,6 @@ export default function ProductList({ products }: { products: ProductProps[] }) 
           ))}
         </div>
       </div>
-    </main>
+    </section>
   );
 }
